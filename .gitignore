@@ -1,0 +1,11 @@
+bin
+obj
+
+.vs
+.idea
+
+.d
+.o
+.exe
+*.make
+Makefile
