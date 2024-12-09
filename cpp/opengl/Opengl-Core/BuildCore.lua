@@ -7,10 +7,11 @@ project "Opengl-Core"
     targetdir ("../bin/" .. OutputDir .. "/%{prj.name}")
     objdir ("../bin/int/" .. OutputDir .. "/%{prj.name}")
 
-    files { "include/**.hpp", "src/**.cpp" }
+    files { "include/**.hpp", "src/**.cpp", "**.h", "**.c" }
 
     includedirs {
         "include/",
+        "vendor/include/"
     }
 
     links {

@@ -13,3 +13,7 @@ template <typename T, typename... Args> constexpr Unique<T> CreateUnique(Args &&
 template <typename T> using Shared = std::shared_ptr<T>;
 
 template <typename T, typename... Args> constexpr Shared<T> CreateShared(Args &&...args) { return std::make_shared<T>(std::forward<Args>(args)...); }
+
+#include <cassert>
+
+#define ASSERT(exp) assert(exp)

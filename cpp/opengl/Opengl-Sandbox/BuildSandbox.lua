@@ -16,6 +16,7 @@ project "Opengl-Sandbox"
 
     links {
         "Opengl-Core",
+        "glfw",
     }
 
     dependson { "Opengl-Core" }
