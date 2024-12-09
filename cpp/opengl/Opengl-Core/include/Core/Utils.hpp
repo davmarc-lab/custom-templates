@@ -4,10 +4,6 @@ template <typename T> struct Pair {
     T x, y;
 };
 
-struct Color {
-    float r = 0.f, g = 0.f, b = 0.f, a = 1.f;
-};
-
 #include <memory>
 
 template <typename T> using Unique = std::unique_ptr<T>;

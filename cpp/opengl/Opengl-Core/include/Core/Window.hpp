@@ -1,7 +1,10 @@
 #pragma once
 
-#include "Utils.hpp"
 #include <GLFW/glfw3.h>
+
+#include "Utils.hpp"
+#include "Structs.hpp"
+
 #include <string>
 
 struct WindowSettings {
@@ -12,12 +15,11 @@ struct WindowSettings {
     bool maximized = false;
     bool vsync = true;
     Color bgColor = {0.3f, 0.3f, 0.3f, 1.0f};
-
 };
 
-class GlWindow {
+class Window {
   public:
 
   private:
-    Unique<GLFWwindow> m_context = nullptr;
+    GLFWwindow *m_context = nullptr;
 };
