@@ -6,9 +6,18 @@
 #include "Structs.hpp"
 #include "Utils.hpp"
 
+#include <functional>
+
 #include <string>
 
 namespace ogl {
+
+struct WindowCallbacks {
+    std::function<void(GLFWwindow *, int, int)> resizeCallback;
+    std::function<void(GLFWwindow *, int, int, int, int)> keyCallback = nullptr;
+    std::function<void(GLFWwindow *, int, int, int)> mouseButtonCallback = nullptr;
+    std::function<void(GLFWwindow *, double, double)> cursorPosCallback = nullptr;
+};
 
 struct WindowSettings {
     std::string name = "GLFW Window";
@@ -29,7 +38,7 @@ class Window : public Layer {
     Window() = delete;
     ~Window() = default;
 
-    inline GLFWwindow* getContext() const { return this->m_context; }
+    inline GLFWwindow *getContext() const { return this->m_context; }
 
     inline int getWidth() const { return this->m_settings.size.x; }
     void setWidth(const int &val) { this->m_settings.size.x = val; }
@@ -39,6 +48,18 @@ class Window : public Layer {
 
     void toggleVsync();
     bool isVsyncEnabled() const;
+
+    void setResizeCallback(std::function<void(GLFWwindow *, int, int)> &&func);
+    void execResizeCallback(GLFWwindow *context, const int &width, const int &height);
+
+    void setKeysCallback(std::function<void(GLFWwindow *, int, int, int, int)> &&func);
+    void execKeysCallback(GLFWwindow *context, const int &key, const int &code, const int &action, const int &mods);
+
+    void setMouseButtonCallback(std::function<void(GLFWwindow *, int, int, int)> &&func);
+    void execMouseButtonCallback(GLFWwindow *context, const int &button, const int &action, const int &mods);
+
+    void setCursorPosCallback(std::function<void(GLFWwindow *, double, double)> &&func);
+    void execCursorPosCallback(GLFWwindow *context, const double &xpos, const double &ypos);
 
     virtual void onAttach() override;
     virtual void onDetach() override;
@@ -53,6 +74,10 @@ class Window : public Layer {
     GLFWwindow *m_context = nullptr;
     WindowSettings m_settings{};
     unsigned int m_clearMask = 0;
+
+    WindowCallbacks m_callbacks{};
+
+    void updateUserPointer();
 };
 
 } // namespace ogl
