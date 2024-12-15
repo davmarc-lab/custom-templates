@@ -6,3 +6,4 @@
 #include "Core/Window.hpp"
 
 #include "Buffer/VertexArray.hpp"
+#include "Buffer/VertexBuffer.hpp"
