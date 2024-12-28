@@ -17,7 +17,7 @@ class RenderBuffer : public Buffer {
     virtual void bind() const override;
     virtual void unbind() const override;
 
-    RenderBuffer() = delete;
+    RenderBuffer() = default;
     RenderBuffer(const RBConfig &config) : m_config(config) {}
     ~RenderBuffer() override;
 

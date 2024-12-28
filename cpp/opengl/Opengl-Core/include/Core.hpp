@@ -7,3 +7,7 @@
 
 #include "Buffer/VertexArray.hpp"
 #include "Buffer/VertexBuffer.hpp"
+#include "Buffer/RenderBuffer.hpp"
+#include "Buffer/FrameBuffer.hpp"
+
+#include "Texture/Texture.hpp"
