@@ -13,4 +13,6 @@
 #include "Buffer/VertexArray.hpp"
 #include "Buffer/VertexBuffer.hpp"
 
+#include "Shader/Shader.hpp"
+
 #include "Texture/Texture.hpp"
