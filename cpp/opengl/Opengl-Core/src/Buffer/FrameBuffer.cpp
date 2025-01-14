@@ -22,7 +22,7 @@ bool FrameBuffer::createFrameBuffer() {
     if (!this->m_texture.getId())
         return false;
 
-    this->bind();
+    glBindFramebuffer(this->m_config.operation, this->m_id);
 
     // attach texture
     glFramebufferTexture2D(this->m_config.operation, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, this->m_texture.getId(), 0);
@@ -31,9 +31,9 @@ bool FrameBuffer::createFrameBuffer() {
     glFramebufferRenderbuffer(this->m_config.operation, this->m_rbo.getAttachmentType(), GL_RENDERBUFFER, this->m_rbo.getId());
 
     auto res = glCheckFramebufferStatus(this->m_config.operation) == GL_FRAMEBUFFER_COMPLETE;
+    glBindFramebuffer(this->m_config.operation, 0);
 
-    this->unbind();
-    return true;
+    return res;
 }
 
 void FrameBuffer::onAttach() {
@@ -48,7 +48,7 @@ void FrameBuffer::onDetach() {}
 void FrameBuffer::bind() const {
     glBindFramebuffer(this->m_config.operation, this->m_id);
     glEnable(GL_DEPTH_TEST);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void FrameBuffer::unbind() const {

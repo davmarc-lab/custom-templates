@@ -33,6 +33,12 @@ int main(int argc, char *argv[]) {
 
     std::cout << fb.createFrameBuffer() << "\n";
 
+    ogl::UniformBuffer ub("name");
+    ub.onAttach();
+    ub.bind();
+    ub.unbind();
+    ub.onDetach();
+
     while (!glfwWindowShouldClose(w.getContext())) {
         w.onUpdate();
         w.onRender();
