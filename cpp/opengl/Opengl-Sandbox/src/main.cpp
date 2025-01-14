@@ -30,14 +30,18 @@ int main(int argc, char *argv[]) {
     t.setTexParameteri(GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     fb.setColorTexture(t);
-
-    std::cout << fb.createFrameBuffer() << "\n";
+    fb.createFrameBuffer();
 
     ogl::UniformBuffer ub("name");
     ub.onAttach();
     ub.bind();
     ub.unbind();
     ub.onDetach();
+
+    const auto rm = ogl::ResourceManager::instance();
+
+    auto f = rm->addResource("./resources/", "first.txt");
+    auto se = rm->addResource("second.txt");
 
     while (!glfwWindowShouldClose(w.getContext())) {
         w.onUpdate();

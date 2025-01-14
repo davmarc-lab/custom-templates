@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core/Layer.hpp"
+#include "Core/Resource.hpp"
 #include "Core/Structs.hpp"
 #include "Core/Utils.hpp"
 #include "Core/Window.hpp"
