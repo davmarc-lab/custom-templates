@@ -9,6 +9,9 @@ int main(int argc, char *argv[]) {
     ogl::Window w{s};
     w.onAttach();
 
+    ogl::ImGuiManager im{"hello", w};
+    im.onAttach();
+
     ogl::VertexBuffer vb{};
     std::vector<glm::vec3> v{{2, 3, 4}, {1, 1, 1}};
     vb.setup(v.data(), v.size(), 0);

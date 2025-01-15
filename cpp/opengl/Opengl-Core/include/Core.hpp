@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Core/ImGui.hpp"
 #include "Core/Layer.hpp"
 #include "Core/Resource.hpp"
 #include "Core/Structs.hpp"
