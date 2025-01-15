@@ -1,11 +1,6 @@
-#include <iostream>
 #include <vector>
 
 #include "../../Opengl-Core/include/Core.hpp"
-
-struct vec3 {
-    float x, y, z;
-};
 
 int main(int argc, char *argv[]) {
     ogl::WindowSettings s{};
@@ -15,7 +10,7 @@ int main(int argc, char *argv[]) {
     w.onAttach();
 
     ogl::VertexBuffer vb{};
-    std::vector<vec3> v{{2, 3, 4}, {1, 1, 1}};
+    std::vector<glm::vec3> v{{2, 3, 4}, {1, 1, 1}};
     vb.setup(v.data(), v.size(), 0);
 
     ogl::FrameBuffer fb{{GL_FRAMEBUFFER, 100, 100}};

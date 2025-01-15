@@ -19,6 +19,10 @@ class Layer {
     virtual void begin() {}
     virtual void end() {}
 
+    std::string getName() const { return this->m_name; }
+
+    bool isAttached() const { return this->m_attached; }
+
   protected:
     std::string m_name{"Layer"};
     bool m_attached = false;
