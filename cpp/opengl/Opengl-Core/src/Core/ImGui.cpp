@@ -1,8 +1,5 @@
 #include "../../include/Core/ImGui.hpp"
 
-#include <functional>
-#include <ranges>
-
 namespace ogl {
 
 void ImGuiManager::onAttach() {

@@ -4,7 +4,6 @@
 #include "Utils.hpp"
 #include "Window.hpp"
 
-#include <algorithm>
 #include <functional>
 #include <map>
 #include <string>

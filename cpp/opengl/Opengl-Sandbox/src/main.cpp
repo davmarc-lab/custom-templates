@@ -1,7 +1,8 @@
-#include <iostream>
+#include "../../Opengl-Core/include/Core.hpp"
+
 #include <vector>
 
-#include "../../Opengl-Core/include/Core.hpp"
+const auto em = ogl::EventManager::instance();
 
 int main(int argc, char *argv[]) {
     ogl::WindowSettings s{};
@@ -9,11 +10,15 @@ int main(int argc, char *argv[]) {
 
     ogl::Window w{s};
     w.onAttach();
+    em->subscribe(ogl::event::loop::LOOP_UPDATE, [&w]() { w.onUpdate(); });
+    em->subscribe(ogl::event::loop::LOOP_RENDER, [&w]() { w.onRender(); });
 
     ogl::ImGuiManager im{"hello", w};
     im.onAttach();
-
-    auto p = im.addPanel<ogl::ImGuiPanel>();
+    em->subscribe(ogl::event::loop::LOOP_UPDATE, [&im]() { im.onUpdate(); });
+    em->subscribe(ogl::event::loop::LOOP_RENDER, [&im]() { im.onRender(); });
+    em->subscribe(ogl::event::loop::LOOP_BEGIN_RENDER, [&im]() { im.begin(); });
+    em->subscribe(ogl::event::loop::LOOP_END_RENDER, [&im]() { im.end(); });
 
     ogl::VertexBuffer vb{};
     std::vector<glm::vec3> v{{2, 3, 4}, {1, 1, 1}};
@@ -45,11 +50,11 @@ int main(int argc, char *argv[]) {
     auto se = rm->addResource("second.txt");
 
     while (!glfwWindowShouldClose(w.getContext())) {
-        w.onUpdate();
-        im.onUpdate();
-
-        w.onRender();
-        im.onRender();
+        em->post(ogl::event::loop::LOOP_INPUT);
+        em->post(ogl::event::loop::LOOP_UPDATE);
+        em->post(ogl::event::loop::LOOP_BEGIN_RENDER);
+        em->post(ogl::event::loop::LOOP_RENDER);
+        em->post(ogl::event::loop::LOOP_END_RENDER);
     }
 
     w.onDetach();
