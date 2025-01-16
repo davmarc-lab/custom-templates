@@ -3,6 +3,7 @@
 #include <vector>
 
 const auto em = ogl::EventManager::instance();
+const auto re = ogl::Renderer::instance();
 
 int main(int argc, char *argv[]) {
     ogl::WindowSettings s{};

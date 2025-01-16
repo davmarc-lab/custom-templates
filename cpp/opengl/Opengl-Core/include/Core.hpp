@@ -7,6 +7,7 @@
 #include "Core/Structs.hpp"
 #include "Core/Utils.hpp"
 #include "Core/Window.hpp"
+#include "Core/Renderer.hpp"
 
 #include "Buffer/ElementBuffer.hpp"
 #include "Buffer/FrameBuffer.hpp"
