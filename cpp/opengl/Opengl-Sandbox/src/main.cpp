@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 
 #include "../../Opengl-Core/include/Core.hpp"
@@ -11,6 +12,8 @@ int main(int argc, char *argv[]) {
 
     ogl::ImGuiManager im{"hello", w};
     im.onAttach();
+
+    auto p = im.addPanel<ogl::ImGuiPanel>();
 
     ogl::VertexBuffer vb{};
     std::vector<glm::vec3> v{{2, 3, 4}, {1, 1, 1}};
@@ -43,7 +46,10 @@ int main(int argc, char *argv[]) {
 
     while (!glfwWindowShouldClose(w.getContext())) {
         w.onUpdate();
+        im.onUpdate();
+
         w.onRender();
+        im.onRender();
     }
 
     w.onDetach();

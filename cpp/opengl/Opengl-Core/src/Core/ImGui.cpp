@@ -1,5 +1,8 @@
 #include "../../include/Core/ImGui.hpp"
 
+#include <functional>
+#include <ranges>
+
 namespace ogl {
 
 void ImGuiManager::onAttach() {
@@ -27,7 +30,14 @@ void ImGuiManager::onDetach() {
 }
 
 void ImGuiManager::onUpdate() {}
-void ImGuiManager::onRender() {}
+
+void ImGuiManager::onRender() {
+    for (auto [_, second] : this->m_panels) {
+        for (auto panel : second) {
+            panel->onRender();
+        }
+    }
+}
 
 void ImGuiManager::begin() {
     ImGui_ImplOpenGL3_NewFrame();
@@ -44,12 +54,12 @@ void ImGuiManager::end() {
     ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
     // Change imgui branch with Viewports
-    // if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
-    //     const auto backup_current_context = glfwGetCurrentContext();
-    //     ImGui::UpdatePlatformWindows();
-    //     ImGui::RenderPlatformWindowsDefault();
-    //     glfwMakeContextCurrent(backup_current_context);
-    // }
+    if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable) {
+        const auto backup_current_context = glfwGetCurrentContext();
+        ImGui::UpdatePlatformWindows();
+        ImGui::RenderPlatformWindowsDefault();
+        glfwMakeContextCurrent(backup_current_context);
+    }
 }
 
 } // namespace ogl
