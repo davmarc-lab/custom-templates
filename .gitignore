@@ -8,4 +8,6 @@ obj
 .o
 .exe
 *.make
+docs/html
+docs/latex
 Makefile
