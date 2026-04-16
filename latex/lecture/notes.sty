@@ -1,0 +1,30 @@
+\usepackage[most]{tcolorbox}
+
+\usepackage{colors}
+
+\newtcbtheorem[number within=section]{theorem}{Theorem}{
+    enhanced,
+    breakable,
+    colback=white,
+    colframe=black!75,
+    fonttitle=\bfseries,
+    arc=2pt,
+    separator sign={:},
+}{th}
+
+\newtcbtheorem[number within=section]{definition}{Definition}{
+    enhanced,
+    breakable,
+    colback=gh-purple-bg,
+    colframe=gh-purple,
+    fonttitle=\bfseries,
+    coltitle=gh-purple,
+    attach title to upper,
+    after title={\enspace},
+    boxrule=0.5pt,
+    arc=2pt,
+    description font=\itshape,
+    separator sign={--},
+}{def}
+
+

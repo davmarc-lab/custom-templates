@@ -1,0 +1,27 @@
+\usepackage[most]{tcolorbox}
+\usepackage{colors}
+
+% --- 1. Custom Quote / Callout Styles ---
+\newtcolorbox{callout}[2]{
+    enhanced,
+    breakable,
+    sharp corners,
+    boxrule=0pt,
+    leftrule=3pt,
+    colframe=#1,
+    colback=#2,
+    fonttitle=\bfseries,
+    coltitle=#1,
+    attach title to upper,
+    after title={\par\smallskip},
+    left=10pt,
+    right=10pt,
+    top=5pt,
+    bottom=5pt,
+}
+
+% Usage aliases
+\newenvironment{note}{\begin{callout}{gh-blue}{gh-blue-bg}\textbf{Note: }}{\end{callout}}
+\newenvironment{warning}{\begin{callout}{gh-orange}{gh-orange-bg}\textbf{Warning: }}{\end{callout}}
+\newenvironment{critical}{\begin{callout}{gh-red}{gh-red-bg}\textbf{Critical: }}{\end{callout}}
+

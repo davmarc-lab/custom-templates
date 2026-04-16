@@ -1,0 +1,82 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage{lecture}
+
+\usepackage{notes}
+\usepackage{code}
+\usepackage{quotes}
+
+\begin{document}
+\begin{titlepage}
+    \maketitle
+    \thispagestyle{empty}
+    \begin{minipage}[t]{0.9\textwidth}
+            \begin{flushleft}
+                \textit{Professore} 
+                \\ 
+                \textbf{Prof.}
+                \\
+                \vspace{0.8cm}
+                \textit{Tutor} 
+                \\
+                \textbf{Prof.}
+                \\
+                \textbf{Prof.}
+                \\
+                \textbf{Prof.}
+            \end{flushleft}
+        \end{minipage}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Core Concepts}
+
+\begin{definition}{Linear Transformation}{linear_trans}
+    A mapping $T: V \to W$ is called a linear transformation if it preserves vector addition and scalar multiplication.
+\end{definition}
+
+\begin{theorem}{Fundamental Theorem of Calculus}{ftc}
+    If $f$ is continuous on $[a, b]$, then:
+    $$\int_a^b f(x) \, dx = F(b) - F(a)$$
+\end{theorem}
+
+\section{Modern Callouts}
+
+\begin{note}
+    This is a standard blue note, useful for extra context or tips.
+\end{note}
+
+\begin{warning}
+    Be careful with the signs when integrating by parts!
+\end{warning}
+
+\begin{critical}
+    Failure to normalize the data will result in a gradient explosion.
+\end{critical}
+
+\section{Implementation}
+
+\begin{codeblock}[py]{Processing Script}
+def process_data(data):
+    # This block has rounded corners and a title
+    cleaned = [x.strip() for x in data if x]
+    return cleaned
+\end{codeblock}
+
+\begin{codeblock}[bash]{Processing Script}
+`ls`
+\end{codeblock}
+
+\begin{terminal}{}
+(*\prompt*) sudo apt-get update && sudo apt-get upgrade -y
+(*\rootprompt*) apt-get update && apt-get upgrade -y
+\end{terminal}
+
+\section{External Implementation}
+
+% If it's a Python file (default)
+\codefile[Python]{Algorithm Logic}{listings/algo.py}
+
+\end{document}
