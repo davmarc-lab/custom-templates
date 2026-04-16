@@ -22,12 +22,58 @@
 \usepackage{graphicx}
 \usepackage{caption}
 
+\newcommand{\school}[1]{\def\theschool{#1}}
+\newcommand{\programme}[1]{\def\theprogramme{#1}}
+\newcommand{\lecture}[1]{\def\thelecture{#1}}
+\newcommand{\coursecode}[1]{\def\thecode{#1}}
+\newcommand{\courseyear}[1]{\def\theyear{#1}}
+
+\newcommand{\theschool}{ALMA MATER STUDIORUM -- UNIVERSITÀ DI BOLOGNA}
+\newcommand{\theprogramme}{Corso di Laurea Magistrale in Ingegneria e Scienze Informatiche}
+\newcommand{\thelecture}{Sample lecture}
+\newcommand{\thecode}{XXXX}
+\newcommand{\theyear}{YYYY}
+
 % --- Document Info ---
-\title{
-    \vspace{2in}
-    \Huge \textbf{Linguaggi, Compilatori e Modelli Computazionali} \\
-    \Large \textit{Course Code: CS101}
-    \vspace{0.5in}
+\newcommand{\makefront}{
+    \begin{titlepage}
+        \centering
+        \large \textbf \theschool
+        \\
+        \noindent\hrulefill
+
+        \vspace{0.4cm}
+        \Large \theprogramme
+
+        \vspace{4cm}
+        \Huge \textbf \thelecture
+
+        \large \vspace{0.6cm} \textit{Codice Corso: \thecode}
+
+        \large \vspace{0.2cm} \textit{Anno: \theyear}
+
+        \vspace{4cm}
+        \thispagestyle{empty}
+        \vspace{2cm}
+        \begin{minipage}[t]{0.3\textwidth}
+            \begin{flushleft}
+                \textit{Professore} 
+                \vspace{0.2cm}
+                \\ 
+                \textbf{Prof.}
+                \vspace{0.4cm}
+            \end{flushleft}
+        \end{minipage}
+        \begin{minipage}[t]{0.6\textwidth}
+            \begin{flushright}
+                \textit{Tutor} 
+                \vspace{0.2cm}
+                \\
+                \textbf{Prof.}
+                \\
+                \textbf{Prof.}
+            \end{flushright}
+        \end{minipage}
+    \end{titlepage}
 }
-\author{Davide Marchetti}
-\date{}
+

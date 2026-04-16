@@ -11,3 +11,5 @@ obj
 docs/html
 docs/latex
 Makefile
+
+build

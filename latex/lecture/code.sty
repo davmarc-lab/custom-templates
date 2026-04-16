@@ -5,7 +5,12 @@
 \lstalias{py}{Python}
 \lstalias{cpp}{C++}
 
+% shorthand command for the prompt to save typing
+\newcommand{\prompt}{\textcolor{green}{user@linux:~\$} }
+\newcommand{\rootprompt}{\textcolor{red}{root@linux:~\$} }
+
 \newtcblisting{terminal}[1]{
+    enhanced,
     listing only,
     breakable,
     colback=black!95,
@@ -17,25 +22,21 @@
     fonttitle=\bfseries\ttfamily,
     coltitle=white,
     left=5pt,
-    enhanced,
     listing options={
         language=bash,
         basicstyle=\ttfamily\small\color{white},
         upquote=true,
         breaklines=true,
         showstringspaces=false,
-        % 'escape' characters to use latex commands
-        escapeinside={(*}{*)}, 
+        escapeinside={(*}{*)},      % 'escape' characters to use latex commands
         keywordstyle=\color{cyan},
         commentstyle=\color{gray!60},
         stringstyle=\color{orange}
     }
 }
-% shorthand command for the prompt to save typing
-\newcommand{\prompt}{\textcolor{green}{user@linux:~\$} }
-\newcommand{\rootprompt}{\textcolor{red}{root@linux:~\$} }
 
 \newtcblisting{codeblock}[2][bash]{
+    enhanced,
     listing only,
     breakable,
     colback=code-bg,
@@ -56,15 +57,16 @@
         showstringspaces=false,
         tabsize=2,
     },
-    title=#2,
+    title={#2},
     coltitle=black,
     attach boxed title to top left={yshift=-2mm, xshift=5mm},
     boxed title style={colback=white, colframe=gh-gray-border, sharp corners, boxrule=0.5pt}
 }
 
 % --- Command to include external files ---
-\newcommand{\codefile}[3][bash]{%
+\newcommand{\codefile}[3][bash]{
     \tcbinputlisting{
+        enhanced,
         listing file={#3},
         listing only,
         breakable,

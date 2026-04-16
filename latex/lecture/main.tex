@@ -7,26 +7,8 @@
 \usepackage{quotes}
 
 \begin{document}
-\begin{titlepage}
-    \maketitle
-    \thispagestyle{empty}
-    \begin{minipage}[t]{0.9\textwidth}
-            \begin{flushleft}
-                \textit{Professore} 
-                \\ 
-                \textbf{Prof.}
-                \\
-                \vspace{0.8cm}
-                \textit{Tutor} 
-                \\
-                \textbf{Prof.}
-                \\
-                \textbf{Prof.}
-                \\
-                \textbf{Prof.}
-            \end{flushleft}
-        \end{minipage}
-\end{titlepage}
+
+\makefront
 
 \tableofcontents
 \newpage
@@ -39,7 +21,12 @@
 
 \begin{theorem}{Fundamental Theorem of Calculus}{ftc}
     If $f$ is continuous on $[a, b]$, then:
-    $$\int_a^b f(x) \, dx = F(b) - F(a)$$
+    \[
+        \int_a^b f(x) \, dx = F(b) - F(a)
+    \]
+    \begin{proof}
+    \end{proof}
+    
 \end{theorem}
 
 \section{Modern Callouts}
@@ -58,25 +45,28 @@
 
 \section{Implementation}
 
-\begin{codeblock}[py]{Processing Script}
+\begin{codeblock}[py]{Sample Python Script}
 def process_data(data):
     # This block has rounded corners and a title
     cleaned = [x.strip() for x in data if x]
     return cleaned
 \end{codeblock}
 
-\begin{codeblock}[bash]{Processing Script}
+\begin{codeblock}{Code block bash}
 `ls`
 \end{codeblock}
 
 \begin{terminal}{}
 (*\prompt*) sudo apt-get update && sudo apt-get upgrade -y
+\end{terminal}
+
+\begin{terminal}{Root Prompt}
 (*\rootprompt*) apt-get update && apt-get upgrade -y
 \end{terminal}
 
+
 \section{External Implementation}
 
-% If it's a Python file (default)
-\codefile[Python]{Algorithm Logic}{listings/algo.py}
+\codefile[py]{External file}{listings/algo.py}
 
 \end{document}
