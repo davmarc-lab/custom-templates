@@ -8,7 +8,7 @@
 
 \begin{document}
 
-\makefront
+\makefront{}
 
 \tableofcontents
 \newpage
@@ -24,10 +24,36 @@
     \[
         \int_a^b f(x) \, dx = F(b) - F(a)
     \]
-    \begin{proof}
-    \end{proof}
-    
 \end{theorem}
+
+\begin{proofblock}{this}
+    External proof block addressable with cref
+\end{proofblock}
+\Cref{prf:this}
+
+\begin{proposition}{Prop}{}
+    sd
+\end{proposition}
+
+\begin{lemma}{Boundness of Sequence}{seq_bound}
+    Every convergent sequence of real numbers is bounded.
+\end{lemma}
+
+\begin{corollary}{Compact Sets}{compact_cor}
+    A subset of $\mathbb{R}^n$ is compact if and only if it is closed and bounded.
+\end{corollary}
+
+\begin{example}{Applying the Theorem}{ex_calc}
+    Consider the sequence $x_n = (-1)^n$. This sequence is bounded but not convergent...
+\end{example}
+
+\begin{remark}{SIU}{}
+    Sample remark
+\end{remark}
+
+\begin{axiom}{Axioms}{}
+    This is an axiom
+\end{axiom}
 
 \section{Modern Callouts}
 
@@ -46,22 +72,22 @@
 \section{Implementation}
 
 \begin{codeblock}[py]{Sample Python Script}
-def process_data(data):
+    def process_data(data):
     # This block has rounded corners and a title
     cleaned = [x.strip() for x in data if x]
     return cleaned
 \end{codeblock}
 
 \begin{codeblock}{Code block bash}
-`ls`
+    `ls`
 \end{codeblock}
 
 \begin{terminal}{}
-(*\prompt*) sudo apt-get update && sudo apt-get upgrade -y
+    (*\prompt*) sudo apt-get update && sudo apt-get upgrade -y
 \end{terminal}
 
 \begin{terminal}{Root Prompt}
-(*\rootprompt*) apt-get update && apt-get upgrade -y
+    (*\rootprompt*) apt-get update && apt-get upgrade -y
 \end{terminal}
 
 

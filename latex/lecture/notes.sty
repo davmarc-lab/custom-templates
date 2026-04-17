@@ -1,29 +1,178 @@
 \usepackage[most]{tcolorbox}
-
 \usepackage{colors}
 
-\newtcbtheorem[number within=section]{theorem}{Teorema}{
-    enhanced,
-    breakable,
-    colback=white,
-    colframe=black!75,
-    fonttitle=\bfseries,
-    arc=2pt,
-    separator sign={:},
-}{th}
+\crefname{definition}{def.}{defs.}
+\Crefname{definition}{Def.}{Defs.}
+\crefname{theorem}{teor.}{teors.}
+\Crefname{theorem}{Teor.}{Teors.}
+\crefname{proof}{dim.}{dims.}
+\Crefname{proof}{Dim.}{Dims.}
+\crefname{proposition}{prop.}{props.}
+\Crefname{proposition}{Prop.}{Props.}
+\crefname{lemma}{lem.}{lems.}
+\Crefname{lemma}{Lem.}{Lems.}
+\crefname{corollary}{cor.}{cors.}
+\Crefname{corollary}{Cor.}{Cors.}
+\crefname{example}{es.}{es.}
+\Crefname{example}{Es.}{Es.}
+\crefname{remark}{oss.}{oss.}
+\Crefname{remark}{Oss.}{Oss.}
+\crefname{axiom}{ass.}{ass.}
+\Crefname{axiom}{Ass.}{Ass.}
 
 \newtcbtheorem[number within=section]{definition}{Definizione}{
-    enhanced,
-    breakable,
+    enhanced, breakable,
     colback=gh-purple-bg,
     colframe=gh-purple,
     fonttitle=\bfseries,
     coltitle=gh-purple,
     attach title to upper,
-    after title={\enspace},
+    after title={\enspace--\enspace},
     boxrule=0.5pt,
     arc=2pt,
     description font=\itshape,
-    separator sign={--},
+    label type=definition
 }{def}
 
+\newtcbtheorem[number within=section]{theorem}{Teorema}{
+    enhanced, breakable,
+    colback=gh-red-bg,
+    colframe=gh-red,
+    fonttitle=\bfseries,
+    coltitle=white,
+    colbacktitle=gh-red,
+    % attach boxed title to top left={xshift=3mm, yshift=-3mm},
+    boxed title style={sharp corners, size=small},
+    arc=2pt,
+    separator sign={:},
+    label type=theorem
+}{th}
+
+\renewcommand{\qedsymbol}{\textcolor{gh-red}{\ensuremath{\blacksquare}}}
+\newtcolorbox{proofbox}[1][Proof]{
+    enhanced,
+    breakable,
+    colback=gh-red-bg!95!gh-red,
+    colframe=gh-red,
+    attach title to upper,
+    fonttitle=\bfseries\itshape,
+    coltitle=gh-red,
+    title={#1:\upshape\enspace},
+    boxrule=0.5pt,
+    arc=2pt,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt,
+    separator sign none,
+    before skip=10pt,
+    after skip=15pt,
+    underlay={
+        \node[anchor=south east, outer sep=5pt] at (frame.south east) {\qedsymbol};
+    },
+    label type=proof
+}
+\renewenvironment{proof}[1][Dimostrazione]{\begin{proofbox}[#1]}{\end{proofbox}}
+
+\newtcbtheorem[number within=section]{outerproof}{Dimostrazione}{
+    enhanced,
+    breakable,
+    colback=gh-red-bg,
+    colframe=gh-red,
+    fonttitle=\bfseries\itshape,
+    coltitle=gh-red,
+    attach title to upper,
+    after title={:\enspace}, 
+    boxrule=0.5pt,
+    arc=2pt,
+    description font=\normalfont,
+    separator sign none,
+    underlay={
+        \node[anchor=south east, outer sep=6pt] at (frame.south east) {\qedsymbol};
+    },
+    label type=proof,
+}{prf}
+\newenvironment{proofblock}[1]{\begin{outerproof}{}{#1}}{\end{outerproof}}
+
+\newtcbtheorem[number within=section]{proposition}{Proposizione}{
+    enhanced, breakable,
+    colback=gray!2,
+    colframe=gh-gray-border,
+    fonttitle=\bfseries,
+    coltitle=gh-gray-dark,
+    attach title to upper,
+    after title={\enspace---\enspace},
+    boxrule=0.5pt,
+    arc=2pt,
+    description font=\itshape,
+    label type=proposition
+}{prop}
+
+\newtcbtheorem[number within=section]{lemma}{Lemma}{
+    enhanced, breakable,
+    colback=gh-blue-bg,
+    colframe=gh-blue!50!gh-gray-border,
+    fonttitle=\bfseries,
+    coltitle=gh-blue,
+    attach title to upper,
+    after title={\enspace---\enspace},
+    boxrule=0.5pt,
+    arc=2pt,
+    description font=\itshape,
+    label type=lemma
+}{lem}
+
+\newtcbtheorem[number within=section]{corollary}{Corollario}{
+    enhanced, breakable,
+    colback=white,
+    colframe=gh-gray-border,
+    fonttitle=\bfseries,
+    coltitle=gh-gray-dark,
+    attach title to upper,
+    after title={\enspace---\enspace},
+    boxrule=0.8pt,
+    arc=2pt,
+    description font=\itshape,
+    label type=corollary
+}{cor}
+
+\newtcbtheorem[number within=section]{example}{Esempio}{
+    enhanced, breakable,
+    colback=gh-green-bg,
+    colframe=gh-green,
+    fonttitle=\bfseries,
+    coltitle=gh-green,
+    attach title to upper,
+    after title={\par\smallskip}, 
+    boxrule=0.5pt,
+    arc=2pt,
+    description font=\itshape,
+    label type=example
+}{ex}
+
+\newtcbtheorem[number within=section]{remark}{Osservazione}{
+    enhanced, breakable,
+    colback=gh-orange-bg,
+    colframe=gh-orange,
+    fonttitle=\bfseries,
+    coltitle=gh-orange,
+    attach title to upper,
+    after title={\enspace--\enspace},
+    boxrule=0.5pt,
+    arc=2pt,
+    description font=\itshape,
+}{rem}
+
+\newtcbtheorem[number within=section]{axiom}{Assioma}{
+    enhanced, breakable,
+    colback=gh-red-bg,
+    colframe=gh-red,
+    fonttitle=\bfseries,
+    coltitle=gh-red,
+    attach title to upper,
+    after title={\enspace--\enspace},
+    boxrule=0.5pt,
+    arc=2pt,
+    description font=\itshape,
+    label type=axiom,
+}{ax}
