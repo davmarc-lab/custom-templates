@@ -1,8 +1,8 @@
 \usepackage[most]{tcolorbox}
 \usepackage{colors}
 
-% --- 1. Custom Quote / Callout Styles ---
-\newtcolorbox{callout}[2]{
+% Parameters: #1 (Color), #2 (Background), #3 (Title text)
+\newtcolorbox{callout}[4]{
     enhanced,
     breakable,
     sharp corners,
@@ -12,16 +12,29 @@
     colback=#2,
     fonttitle=\bfseries,
     coltitle=#1,
+    % Title logic: Bold Main Title + Italic Sub-title in parentheses
+    title={#3:\enspace\ifstrempty{#4}{}{\textnormal{\textit{#4}}}},
     attach title to upper,
-    after title={\par\smallskip},
+    after title={\ifstrempty{#4}{}{\newline}},
     left=10pt,
     right=10pt,
     top=5pt,
     bottom=5pt,
 }
 
-% Usage aliases
-\newenvironment{note}{\begin{callout}{gh-blue}{gh-blue-bg}\textbf{Note: }}{\end{callout}}
-\newenvironment{warning}{\begin{callout}{gh-orange}{gh-orange-bg}\textbf{Warning: }}{\end{callout}}
-\newenvironment{critical}{\begin{callout}{gh-red}{gh-red-bg}\textbf{Critical: }}{\end{callout}}
+\newenvironment{note}[1][]{
+    \begin{callout}{gh-blue}{gh-blue-bg}{Note}{#1}
+}{\end{callout}}
+
+\newenvironment{tip}[1][]{
+    \begin{callout}{gh-green}{gh-green-bg}{Tip}{#1}
+}{\end{callout}}
+
+\newenvironment{warning}[1][]{
+    \begin{callout}{gh-orange}{gh-orange-bg}{Warning}{#1}
+}{\end{callout}}
+
+\newenvironment{critical}[1][]{
+    \begin{callout}{gh-red}{gh-red-bg}{Critical}{#1}
+}{\end{callout}}
 
