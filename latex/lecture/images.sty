@@ -1,5 +1,11 @@
-\newenvironment{image}{\begin{figure}[ht]}{\end{figure}}
+\usepackage{graphicx}
+
+\crefname{figure}{figura}{figure}
+\Crefname{figure}{Figura}{Figure}
+
+\newenvironment{image}{\begin{figure}[]}{\end{figure}}
 \newenvironment{cimage}{
-    \begin{figure}[ht]
+    \begin{figure}[]
         \begin{center}
 }{\end{center}\end{figure}}
+
