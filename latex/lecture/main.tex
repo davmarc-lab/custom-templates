@@ -7,6 +7,7 @@
 \usepackage{quotes}
 
 \usepackage{tables}
+\usepackage{images}
 
 \begin{document}
 
@@ -59,7 +60,6 @@
 
 \section{Tables and Images}
 
-
 \begin{ctable*}{r||c|c}
     & 0 & 1 \\
     \midrule
@@ -68,6 +68,20 @@
     $\star q_1$       & $q_1$ & $q_1$ \\
     $q_2$             & $q_2$ & $q_1$ \\
 \end{ctable*}
+
+\begin{figure}[ht]
+    \begin{center}
+        \includegraphics[width=.6\textwidth]{assets/cool snippet.png}
+        \caption{Cool Snippet}
+        \label{fig:cool-snippet}
+    \end{center}
+\end{figure}
+
+\begin{cimage}
+    \includegraphics[width=.8\textwidth]{assets/20260419_001807.png}
+    \caption{foo}
+    \label{fig:20260419_001807}
+\end{cimage}
 
 \section{Modern Callouts}
 
