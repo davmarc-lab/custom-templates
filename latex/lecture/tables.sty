@@ -1,0 +1,15 @@
+\usepackage{booktabs}
+
+\newenvironment{ntable}[1]{
+    \setlength{\aboverulesep}{0pt}
+    \setlength{\belowrulesep}{0pt}
+    \begin{tabular}{#1}
+}{\end{tabular}}
+\newenvironment{ctable}[1]{\begin{center}\begin{ntable}{#1}}{\end{ntable}\end{center}}
+
+\newenvironment{ntable*}[1]{
+    \setlength{\aboverulesep}{.4ex}
+    \setlength{\belowrulesep}{.4ex}
+    \begin{tabular}{#1}
+}{\end{tabular}}
+\newenvironment{ctable*}[1]{\begin{center}\begin{ntable*}{#1}}{\end{ntable*}\end{center}}

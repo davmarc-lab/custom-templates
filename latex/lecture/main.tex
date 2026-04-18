@@ -6,6 +6,8 @@
 \usepackage{code}
 \usepackage{quotes}
 
+\usepackage{tables}
+
 \begin{document}
 
 \makefront{}
@@ -54,6 +56,18 @@
 \begin{axiom}{Axioms}{}
     This is an axiom
 \end{axiom}
+
+\section{Tables and Images}
+
+
+\begin{ctable*}{r||c|c}
+    & 0 & 1 \\
+    \midrule
+    \midrule
+    $\rightarrow q_0$ & $q_2$ & $q_0$ \\
+    $\star q_1$       & $q_1$ & $q_1$ \\
+    $q_2$             & $q_2$ & $q_1$ \\
+\end{ctable*}
 
 \section{Modern Callouts}
 
