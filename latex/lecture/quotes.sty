@@ -23,10 +23,28 @@
 }
 
 \newenvironment{note}[1][]{\begin{callout}{gh-blue}{gh-blue-bg}{Note}{#1}}{\end{callout}}
-
 \newenvironment{tip}[1][]{\begin{callout}{gh-green}{gh-green-bg}{Tip}{#1}}{\end{callout}}
-
 \newenvironment{warning}[1][]{\begin{callout}{gh-orange}{gh-orange-bg}{Warning}{#1}}{\end{callout}}
-
 \newenvironment{critical}[1][]{\begin{callout}{gh-red}{gh-red-bg}{Critical}{#1}}{\end{callout}}
+
+\newtcolorbox{stdquote}[1]{
+    enhanced,
+    breakable,
+    sharp corners,
+    boxrule=0pt,
+    leftrule=3pt,
+    colframe=gh-gray-dark,
+    colback=gh-gray-border,
+    fonttitle=\bfseries,
+    coltitle=gh-gray-dark,
+    title={\ifstrempty{#1}{}{#1}}, 
+    attach title to upper,
+    after title={\ifstrempty{#1}{}{\newline}},
+    left=10pt,
+    right=10pt,
+    top=5pt,
+    bottom=5pt,
+}
+
+\renewenvironment{quote}[1][]{\begin{stdquote}{#1}}{\end{stdquote}}
 

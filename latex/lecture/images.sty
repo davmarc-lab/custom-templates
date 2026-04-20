@@ -3,9 +3,6 @@
 \crefname{figure}{figura}{figure}
 \Crefname{figure}{Figura}{Figure}
 
-\newenvironment{image}{\begin{figure}[]}{\end{figure}}
-\newenvironment{cimage}{
-    \begin{figure}[]
-        \begin{center}
-}{\end{center}\end{figure}}
+\newenvironment{image}[1][ht]{\begin{figure}[#1]}{\end{figure}}
+\newenvironment{cimage}[1][ht]{\begin{figure}[#1]\begin{center}}{\end{center}\end{figure}}
 
